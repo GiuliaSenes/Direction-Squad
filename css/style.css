@@ -46,6 +46,7 @@ textarea:focus-visible {
 .skip-link:focus { 
   top: 1rem; 
 }
+
 .custom-navbar {
   background: var(--nav-background);
   border-bottom: 1px solid var(--border-color);
