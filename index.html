@@ -1,177 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Guida al Risuo</title>
 
     <!-- Meta tags OpenGraph for SEO -->
     <meta property="og:title" content="Guide to reusing | Find local places" />
-    <meta property="og:description" content="Learn how to extend the life of your clothing items and reduce waste." />
-    <meta property="og:image" content="./img/ReuseClothing.png">
-    <meta property="og:type" content="website">
+    <meta
+      property="og:description"
+      content="Learn how to extend the life of your clothing items and reduce waste."
+    />
+    <meta property="og:image" content="./img/ReuseClothing.png" />
+    <meta property="og:type" content="website" />
 
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- CSS style -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<!-- Navbar -->
- <a class="skip-link" href="#main-content">Skip to main content</a>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="#about">
-                    Guida al Riuso
-                </a>
-                <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu"
-                    aria-controls="menu"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    >
+      <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#about"> Guida al Riuso </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="localPointForm.html">Segnala nuovi punti di riciclo</a>
-                        </li>                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="localPointForm.html"
+                  >Segnala nuovi punti di riciclo</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
-  <main id="main-content" tabindex="-1">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-container">
-        <div class="hero-text">
-          <h1 id="hero-title">Dai una seconda vita agli oggetti di uso quotidiano.</h1>
-          <p>Scopri i luoghi nella tua zona dove, donare, scambiare, riciclare e riparare abbigliamento, biciclette, apparecchi elettronici e mobili.</p>
-          <div class="hero-actions">
-            <a href="#local-points" class="btn btn-success">Esplora dove puoi riusare</a>
-            <a href="localPointForm.html" class="btn btn-outline-light">Segnala un nuovo punto</a>
+    <main id="main-content" tabindex="-1">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-container">
+          <div class="hero-text">
+            <h1 id="hero-title">
+              Dai una seconda vita agli oggetti di uso quotidiano.
+            </h1>
+            <p>
+              Scopri i luoghi nella tua zona dove, donare, scambiare, riciclare
+              e riparare abbigliamento, biciclette, apparecchi elettronici e
+              mobili.
+            </p>
+            <div class="hero-actions">
+              <a href="#local-points" class="btn btn-success"
+                >Esplora dove puoi riusare</a
+              >
+              <a href="localPointForm.html" class="btn btn-outline-light"
+                >Segnala un nuovo punto</a
+              >
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="./img/ReuseClothing.png"
+              alt=""
+              width="320"
+              height="320"
+            />
           </div>
         </div>
-        <div class="hero-image">
-          <img src="./img/ReuseClothing.png" alt="" width="320" height="320">
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-spacing" id="local-points" aria-labelledby="points-title">
-      <div class="container">
-        <h2 id="points-title">Dove Riciclare</h2>
-        <p id="preview-note">Questi sono luoghi di esempio. La riceerca e i filtri saranno disponibili quando questo prototipo sarà collegato a JavaScript</p>
+      <section
+        class="section-spacing"
+        id="local-points"
+        aria-labelledby="points-title"
+      >
+        <div class="container">
+          <h2 id="points-title">Dove Riciclare</h2>
+          <p id="preview-note">
+            Questi sono luoghi di esempio. La riceerca e i filtri saranno
+            disponibili quando questo prototipo sarà collegato a JavaScript
+          </p>
 
-        <fieldset id="point-filters" class="filter-panel" aria-describedby="preview-note">
-          <legend>Trova un punto di riuso nella tua zona</legend>
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <label for="search" class="form-label">Ricerca per nome, zona o indirizzo.</label>
-              <input type="search" id="search" name="search" class="form-control">
-            </div>
-            <div class="col-12 col-md-3">
-              <label for="action-filter" class="form-label">Azione</label>
+          <fieldset
+            id="point-filters"
+            class="filter-panel"
+            aria-describedby="preview-note"
+          >
+            <legend>Trova un punto di riuso nella tua zona</legend>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="search" class="form-label"
+                  >Ricerca per nome, zona o indirizzo.</label
+                >
+                <input
+                  type="search"
+                  id="search"
+                  name="search"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-12 col-md-3">
+                <label for="action-filter" class="form-label">Azione</label>
                 <select id="action-filter" name="action" class="form-select">
-                    <option value="">Tutte le azioni</option>
-                    <option value="donate">Donare</option>
-                    <option value="exchange">Scambiare</option>
-                    <option value="recycle">Riciclare</option>
-                    <option value="repair">Riparare</option>
+                  <option value="">Tutte le azioni</option>
+                  <option value="donate">Donare</option>
+                  <option value="exchange">Scambiare</option>
+                  <option value="recycle">Riciclare</option>
+                  <option value="repair">Riparare</option>
                 </select>
-            </div>
-            <div class="col-12 col-md-3">
-              <label for="category-filter" class="form-label">Categoria</label>
-                <select id="category-filter" name="category" class="form-select">
-                    <option value="">Tutte le categorie</option>
-                    <option value="bicycles">Bicilette</option>
-                    <option value="clothing">Abbigliamento</option>
-                    <option value="electronics">Eletronica</option>
-                    <option value="furniture">Mobili</option>
+              </div>
+              <div class="col-12 col-md-3">
+                <label for="category-filter" class="form-label"
+                  >Categoria</label
+                >
+                <select
+                  id="category-filter"
+                  name="category"
+                  class="form-select"
+                >
+                  <option value="">Tutte le categorie</option>
+                  <option value="bicycles">Bicilette</option>
+                  <option value="clothing">Abbigliamento</option>
+                  <option value="electronics">Eletronica</option>
+                  <option value="furniture">Mobili</option>
                 </select>
+              </div>
             </div>
-          </div>
-        </fieldset>
-        <p hidden id="results-status" class="results-status" role="status">Punti di riciclo</p>
-        <!-- Sono esempi da sostituire con i dati presi dall'array data.js-->
-        <div id="local-points-grid" class="localPoints-grid">
-          
-            <article hidden class="localPoint-card" aria-labelledby="point-1-title" display="none">
-            <p class="point-category">Bicycles · Repair</p>
-            <h3 id="point-1-title">Bike WorkShop</h3>
-            <p>A workshop where you can repair your bicycle with experienced support.</p>
-            <dl class="point-details">
-              <dt>Zone</dt><dd>Centro</dd>
-              <dt>Address</dt><dd>Via Roma 12</dd>
-              <dt>Opening hours</dt><dd>Mon–Fri 15:00–19:00</dd>
-            </dl>
-          </article>
+          </fieldset>
+          <p hidden id="results-status" class="results-status" role="status">
+            Punti di riciclo
+          </p>
 
-          <article hidden class="localPoint-card" aria-labelledby="point-2-title">
-            <p class="point-category">Clothing · Donate</p>
-            <h3 id="point-2-title">Fair Trade Fair</h3>
-            <p>Donate clothing in good condition and give it a second life.</p>
-            <dl class="point-details">
-              <dt>Zone</dt><dd>Nord</dd>
-              <dt>Address</dt><dd>Corso Milano 45</dd>
-              <dt>Opening hours</dt><dd>Tue–Sat 10:00–18:00</dd>
-            </dl>
-          </article>
+          <!-- Card visualizzate dinamicamente dall'array data.js-->
 
-          <article hidden class="localPoint-card" aria-labelledby="point-3-title">
-            <p class="point-category">Electronics · Repair</p>
-            <h3 id="point-3-title">Restore Tech Lab</h3>
-            <p>Technical support for repairing small appliances and computers.</p>
-            <dl class="point-details">
-              <dt>Zone</dt><dd>Sud</dd>
-              <dt>Address</dt><dd>Via Napoli 8</dd>
-              <dt>Opening hours</dt><dd>Wed–Thu 14:00–18:00</dd>
-            </dl>
-          </article>
-
-          <article hidden class="localPoint-card" aria-labelledby="point-4-title">
-            <p class="point-category">Furniture · Exchange</p>
-            <h3 id="point-4-title">Furniture Exchange Center</h3>
-            <p>A local place to exchange furniture and home accessories.</p>
-            <dl class="point-details">
-              <dt>Zone</dt><dd>Ovest</dd>
-              <dt>Address</dt><dd>Via Torino 88</dd>
-              <dt>Opening hours</dt><dd>Saturday 09:00–13:00</dd>
-            </dl>
-          </article>
-
+          <p id="empty-state" hidden>
+            No places match your search. Try another action or category.
+          </p>
         </div>
-        <p id="empty-state" hidden>No places match your search. Try another action or category.</p>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="container">
-            <p>© 2026 Decision Squad - Guida al Riuso - Progetto Didattico - All rights reserved </p>
-            <a href="https://github.com/GiuliaSenes/Direction-Squad">GitHub: Repository del progetto</a>
-        </div>
+      <div class="container">
+        <p>
+          © 2026 Decision Squad - Guida al Riuso - Progetto Didattico - All
+          rights reserved
+        </p>
+        <a href="https://github.com/GiuliaSenes/Direction-Squad"
+          >GitHub: Repository del progetto</a
+        >
+      </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
+  </body>
+</html>
+=======
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>
 
 </html>
+>>>>>>> a23b7e7bed46184e75cdacddcd60152dad1a0520
