@@ -102,8 +102,7 @@
         <div class="container">
           <h2 id="points-title">Dove Riciclare</h2>
           <p id="preview-note">
-            Questi sono luoghi di esempio. La riceerca e i filtri saranno
-            disponibili quando questo prototipo sarà collegato a JavaScript
+            Puoi selezionare il punto di riuso più vicino a te !!!
           </p>
 
           <fieldset
@@ -152,16 +151,20 @@
               </div>
             </div>
           </fieldset>
-          <p hidden id="results-status" class="results-status" role="status">
+          <p id="results-status" class="results-status" role="status">
             Punti di riciclo
           </p>
 
-          <div id="local-points-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4"></div>
+          <div
+            id="local-points-grid"
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4"
+          ></div>
 
           <!-- Card visualizzate dinamicamente dall'array data.js-->
 
           <p id="empty-state" hidden>
-            No places match your search. Try another action or category.
+            Nessun luogo corrisponde alla tua ricerca. Prova un'altra azione o
+            categoria.
           </p>
         </div>
       </section>
@@ -183,7 +186,5 @@
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
-</body>
-
+  </body>
 </html>
-
