@@ -8,6 +8,7 @@
   --accent-color: #86efac;
   --border-color: #64748b;
 }
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -16,6 +17,7 @@ body {
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
+
 a { 
   color: var(--accent-color); 
 }
@@ -95,25 +97,31 @@ h2 {
   gap: 2rem;
   text-align: center;
 }
+
 .hero-text, .hero-image { 
   min-width: 0; 
 }
+
 .hero-text p { 
   font-size: 1.125rem; 
   color: var(--muted-color); 
 }
+
 .hero-actions, .form-actions { 
   display: flex; 
   flex-wrap: wrap; 
   gap: .75rem; 
 }
+
 .hero-actions { 
   justify-content: center; 
 }
+
 .hero-image { 
   width: 100%; 
   max-width: 320px; 
 }
+
 .hero-image img {
   display: block;
   width: 100%;
@@ -123,14 +131,9 @@ h2 {
   border-radius: 50%;
   border: 5px solid var(--accent-color);
 }
+
 .section-spacing { 
   padding: 3rem 0; 
-}
-
-.localPoints-grid { 
-  display: grid; 
-  grid-template-columns: minmax(0, 1fr); 
-  gap: 1.25rem; 
 }
 
 .localPoint-card, .filter-panel, .form-panel {
@@ -140,14 +143,17 @@ h2 {
   padding: 1.25rem;
   min-width: 0;
 }
+
 .localPoint-card h3 { 
   font-size: 1.375rem; 
   margin-bottom: 1rem; 
 }
+
 .point-category { 
   color: var(--accent-color); 
   font-weight: 600; 
 }
+
 .point-details {
    margin-bottom: 0; 
 }
@@ -206,14 +212,35 @@ h2 {
 }
 
 @media (min-width: 768px) {
-  .localPoints-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  h1 { font-size: 2.75rem; }
-  .form-panel { padding: 2rem; }
+  h1 { 
+    font-size: 2.75rem; 
+  }
+  
+  .form-panel { 
+    padding: 2rem; 
+  }
 }
 @media (min-width: 992px) {
-  .hero { padding: 5rem 0; }
-  .hero-container { flex-direction: row; text-align: left; gap: 3rem; }
-  .hero-text { flex: 1; }
-  .hero-image { flex: 0 1 320px; }
-  .hero-actions { justify-content: flex-start; }
+  .hero { 
+    padding: 5rem 0; 
+  }
+
+  .hero-container { 
+    flex-direction: row; 
+    text-align: left; 
+    gap: 3rem; 
+  }
+
+  .hero-text { 
+    flex: 1; 
+  }
+
+  .hero-image { 
+    flex: 0 1 320px; 
+  }
+
+  .hero-actions { 
+    justify-content: flex-start; 
+  }
+
 }
