@@ -9,68 +9,91 @@ const emptyState = document.getElementById('empty-state');
 // --- UNIONE DEI DATI FISSI E QUELLI SALVATI DAL FORM ---
 const puntiLocaliSalvati = JSON.parse(localStorage.getItem('nuoviPunti')) || [];
 const tuttiIPunti = [...puntiRiuso, ...puntiLocaliSalvati];
-// -----------------------------------------------------
+
+// --- DIZIONARI DI TRADUZIONE PER L'INTERFACCIA ---
+const traduzioniCategorie = {
+    bicycles: "Biciclette",
+    clothing: "Abbigliamento",
+    electronics: "Elettronica",
+    furniture: "Mobili"
+};
+
+const traduzioniAzioni = {
+    donate: "Donare",
+    exchange: "Scambiare",
+    recycle: "Riciclare",
+    repair: "Riparare"
+};
 
 // 2. Funzione per stampare le card dinamicamente
 function renderPoints(arrayToRender) {
     gridContainer.innerHTML = '';
 
     if (arrayToRender.length === 0) {
-        emptyState.hidden = false;
-        resultsStatus.textContent = "0 places found";
+        if (emptyState) emptyState.hidden = false;
+        resultsStatus.textContent = "0 luoghi trovati";
         return;
     } else {
-        emptyState.hidden = true;
+        if (emptyState) emptyState.hidden = true;
     }
 
-    resultsStatus.textContent = `${arrayToRender.length} places available`;
+    // Contatore dei risultati in italiano
+    resultsStatus.textContent = `${arrayToRender.length} luoghi disponibili`;
 
     arrayToRender.forEach(punto => {
-        const categoryFormatted = punto.category.charAt(0).toUpperCase() + punto.category.slice(1);
-        const actionFormatted = punto.action.charAt(0).toUpperCase() + punto.action.slice(1);
+        // Traduzione dinamica di Categoria e Azione
+        const categoryFormatted = traduzioniCategorie[punto.category] || punto.category;
+        const actionFormatted = traduzioniAzioni[punto.action] || punto.action;
 
         const cardHTML = `
-            <article class="localPoint-card" aria-labelledby="point-${punto.id}-title">
-                <p class="point-category">${categoryFormatted} · ${actionFormatted}</p>
-                <h3 id="point-${punto.id}-title">${punto.name}</h3>
-                <p>${punto.description}</p>
-                <dl class="point-details">
-                    <dt>Zone</dt><dd>${punto.zone}</dd>
-                    <dt>Address</dt><dd>${punto.address}</dd>
-                    <dt>Opening hours</dt><dd>${punto.hours}</dd>
-                </dl>
-            </article>
+            <div class="col">
+                <article class="localPoint-card h-100 p-4 border rounded shadow-sm" aria-labelledby="point-${punto.id}-title">
+                    <p class="point-category text-success font-monospace small fw-bold mb-2">
+                        ${categoryFormatted} · ${actionFormatted}
+                    </p>
+                    <h3 id="point-${punto.id}-title" class="h5 mb-3">${punto.name}</h3>
+                    <p class="card-text text-light mb-4">${punto.description}</p>
+                    <dl class="point-details small mb-0">
+                        <dt class="fw-bold">Zona</dt>
+                        <dd class="mb-2">${punto.zone}</dd>
+                        <dt class="fw-bold">Indirizzo</dt>
+                        <dd class="mb-2">${punto.address}</dd>
+                        <dt class="fw-bold">Orari di apertura</dt>
+                        <dd class="mb-0">${punto.hours}</dd>
+                    </dl>
+                </article>
+            </div>
         `;
 
         gridContainer.innerHTML += cardHTML;
     });
 }
 
-// 3. Funzione di filtraggio (usa 'tuttiIPunti')
+// 3. Logica di filtraggio in tempo reale
 function filterPoints() {
-    const searchText = searchInput.value.toLowerCase().trim();
+    const query = searchInput.value.toLowerCase().trim();
     const selectedAction = actionFilter.value;
     const selectedCategory = categoryFilter.value;
 
-    const filtered = tuttiIPunti.filter(punto => {
-        const matchesSearch = 
-            punto.name.toLowerCase().includes(searchText) ||
-            punto.zone.toLowerCase().includes(searchText) ||
-            punto.address.toLowerCase().includes(searchText);
+    const risultatiFiltrati = tuttiIPunti.filter(punto => {
+        const matchQuery = punto.name.toLowerCase().includes(query) ||
+                           punto.zone.toLowerCase().includes(query) ||
+                           punto.address.toLowerCase().includes(query) ||
+                           punto.description.toLowerCase().includes(query);
 
-        const matchesAction = selectedAction === "" || punto.action === selectedAction;
-        const matchesCategory = selectedCategory === "" || punto.category === selectedCategory;
+        const matchAction = (selectedAction === 'all' || selectedAction === '') ? true : punto.action === selectedAction;
+        const matchCategory = (selectedCategory === 'all' || selectedCategory === '') ? true : punto.category === selectedCategory;
 
-        return matchesSearch && matchesAction && matchesCategory;
+        return matchQuery && matchAction && matchCategory;
     });
 
-    renderPoints(filtered);
+    renderPoints(risultatiFiltrati);
 }
 
-// 4. Ascoltatori di eventi sugli input
+// Event Listeners per i filtri
 searchInput.addEventListener('input', filterPoints);
 actionFilter.addEventListener('change', filterPoints);
 categoryFilter.addEventListener('change', filterPoints);
 
-// 5. Primo avvio: mostra tutti i punti (fissi + eventuali aggiunti dall'utente)
+// Avvio iniziale
 renderPoints(tuttiIPunti);
