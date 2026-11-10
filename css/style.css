@@ -1,0 +1,218 @@
+/* Bootstrap supplies the reset, form controls and utility classes. */
+:root {
+  --page-background: #323e58;
+  --panel-background: #1f2937;
+  --nav-background: #0f172a;
+  --text-color: #ffffff;
+  --muted-color: #d1d5db;
+  --accent-color: #86efac;
+  --border-color: #64748b;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--page-background);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+a { 
+  color: var(--accent-color); 
+}
+
+a:hover { 
+  color: #bbf7d0; 
+}
+/* A visible keyboard indicator on both light controls and dark panels. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #0f172a;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  z-index: 1100;
+  padding: .75rem 1rem;
+  background: var(--nav-background);
+}
+
+.skip-link:focus { 
+  top: 1rem; 
+}
+.custom-navbar {
+  background: var(--nav-background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.custom-navbar .navbar-brand { 
+  white-space: normal; 
+}
+
+.custom-navbar .nav-link { 
+  color: #d1d5db; 
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active { 
+  color: #ffffff; 
+}
+
+.custom-navbar .nav-link.active {
+   text-decoration: underline; 
+   text-underline-offset: .3em; 
+}
+
+h1, h2, h3 { 
+  line-height: 1.2; 
+}
+
+h1 { 
+  font-size: 2rem;
+}
+
+h2 { 
+  color: var(--accent-color); 
+  margin-bottom: 1rem; 
+}
+
+/* Mobile first: stacked content, then two columns on larger screens. */
+.hero { 
+  padding: 3rem 0; 
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+.hero-text, .hero-image { 
+  min-width: 0; 
+}
+.hero-text p { 
+  font-size: 1.125rem; 
+  color: var(--muted-color); 
+}
+.hero-actions, .form-actions { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: .75rem; 
+}
+.hero-actions { 
+  justify-content: center; 
+}
+.hero-image { 
+  width: 100%; 
+  max-width: 320px; 
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--accent-color);
+}
+.section-spacing { 
+  padding: 3rem 0; 
+}
+
+.localPoints-grid { 
+  display: grid; 
+  grid-template-columns: minmax(0, 1fr); 
+  gap: 1.25rem; 
+}
+
+.localPoint-card, .filter-panel, .form-panel {
+  background: var(--panel-background);
+  border: 1px solid var(--border-color);
+  border-radius: .75rem;
+  padding: 1.25rem;
+  min-width: 0;
+}
+.localPoint-card h3 { 
+  font-size: 1.375rem; 
+  margin-bottom: 1rem; 
+}
+.point-category { 
+  color: var(--accent-color); 
+  font-weight: 600; 
+}
+.point-details {
+   margin-bottom: 0; 
+}
+
+.point-details dt { 
+  font-weight: 600; 
+}
+
+.point-details dd { 
+  margin-bottom: .75rem; 
+  color: var(--muted-color); 
+}
+
+.point-details dd:last-child { 
+  margin-bottom: 0; 
+}
+
+.filter-panel { 
+  margin-top: 1.5rem; 
+}
+
+.filter-panel legend { 
+  float: none; 
+  width: auto; 
+  font-size: 1.25rem; 
+  margin-bottom: 1rem; 
+}
+
+.results-status { 
+  margin: 1.5rem 0 1rem; 
+}
+
+.form-container { 
+  max-width: 960px; 
+}
+
+.form-panel { 
+  margin-top: 1.5rem; 
+}
+
+.field-help { 
+  color: var(--muted-color); 
+  font-size: .875rem; 
+  margin: .5rem 0 0; 
+}
+
+.site-footer { 
+  border-top: 1px solid var(--border-color); 
+  padding: 2rem 0; 
+  text-align: center; 
+  color: var(--muted-color); 
+}
+
+.site-footer p { 
+  margin-bottom: .5rem; 
+}
+
+@media (min-width: 768px) {
+  .localPoints-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  h1 { font-size: 2.75rem; }
+  .form-panel { padding: 2rem; }
+}
+@media (min-width: 992px) {
+  .hero { padding: 5rem 0; }
+  .hero-container { flex-direction: row; text-align: left; gap: 3rem; }
+  .hero-text { flex: 1; }
+  .hero-image { flex: 0 1 320px; }
+  .hero-actions { justify-content: flex-start; }
+}

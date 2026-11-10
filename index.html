@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guide to Reusing</title>
+
+    <!-- Meta tags OpenGraph for SEO -->
+    <meta property="og:title" content="Guide to reusing | Find local places" />
+    <meta property="og:description" content="Learn how to extend the life of your clothing items and reduce waste." />
+    <meta property="og:image" content="./img/ReuseClothing.png">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+ <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#about">
+                    Guide to Reusing
+                </a>
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu"
+                    aria-controls="menu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="localPointForm.html">Suggest new Places</a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <h1 id="hero-title">Give everyday items a second life.</h1>
+          <p>Discover local places to donate, exchange, recycle and repair clothing, bicycles, electronics and furniture.</p>
+          <div class="hero-actions">
+            <a href="#local-points" class="btn btn-success">Explore local places</a>
+            <a href="localPointForm.html" class="btn btn-outline-light">Suggest a place</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="./img/ReuseClothing.png" alt="" width="320" height="320">
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="local-points" aria-labelledby="points-title">
+      <div class="container">
+        <h2 id="points-title">Local places</h2>
+        <p id="preview-note">These are sample places. Search and filters will be available when this prototype is connected to JavaScript.</p>
+
+        <fieldset id="point-filters" class="filter-panel" aria-describedby="preview-note">
+          <legend>Find a place</legend>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="search" class="form-label">Search by name, zone or address</label>
+              <input type="search" id="search" name="search" class="form-control">
+            </div>
+            <div class="col-12 col-md-3">
+              <label for="action-filter" class="form-label">Action</label>
+                <select id="action-filter" name="action" class="form-select">
+                    <option value="">All actions</option>
+                    <option value="donate">Donate</option>
+                    <option value="exchange">Exchange</option>
+                    <option value="recycle">Recycle</option>
+                    <option value="repair">Repair</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-3">
+              <label for="category-filter" class="form-label">Category</label>
+                <select id="category-filter" name="category" class="form-select">
+                    <option value="">All categories</option>
+                    <option value="bicycles">Bicycles</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option>
+                </select>
+            </div>
+          </div>
+        </fieldset>
+        <p id="results-status" class="results-status" role="status">4 sample places</p>
+        <!-- Sono esempi da sostituire con i dati presi dall'array data.js-->
+        <div id="local-points-grid" class="localPoints-grid">
+          
+            <article class="localPoint-card" aria-labelledby="point-1-title">
+            <p class="point-category">Bicycles · Repair</p>
+            <h3 id="point-1-title">Officina Bici Popolare</h3>
+            <p>A workshop where you can repair your bicycle with experienced support.</p>
+            <dl class="point-details">
+              <dt>Zone</dt><dd>Centro</dd>
+              <dt>Address</dt><dd>Via Roma 12</dd>
+              <dt>Opening hours</dt><dd>Mon–Fri 15:00–19:00</dd>
+            </dl>
+          </article>
+
+          <article class="localPoint-card" aria-labelledby="point-2-title">
+            <p class="point-category">Clothing · Donate</p>
+            <h3 id="point-2-title">Mercatino Solidale dell’Usato</h3>
+            <p>Donate clothing in good condition and give it a second life.</p>
+            <dl class="point-details">
+              <dt>Zone</dt><dd>Nord</dd>
+              <dt>Address</dt><dd>Corso Milano 45</dd>
+              <dt>Opening hours</dt><dd>Tue–Sat 10:00–18:00</dd>
+            </dl>
+          </article>
+
+          <article class="localPoint-card" aria-labelledby="point-3-title">
+            <p class="point-category">Electronics · Repair</p>
+            <h3 id="point-3-title">Rigenera Tech Lab</h3>
+            <p>Technical support for repairing small appliances and computers.</p>
+            <dl class="point-details">
+              <dt>Zone</dt><dd>Sud</dd>
+              <dt>Address</dt><dd>Via Napoli 8</dd>
+              <dt>Opening hours</dt><dd>Wed–Thu 14:00–18:00</dd>
+            </dl>
+          </article>
+
+          <article class="localPoint-card" aria-labelledby="point-4-title">
+            <p class="point-category">Furniture · Exchange</p>
+            <h3 id="point-4-title">Centro Scambio Mobili</h3>
+            <p>A local place to exchange furniture and home accessories.</p>
+            <dl class="point-details">
+              <dt>Zone</dt><dd>Ovest</dd>
+              <dt>Address</dt><dd>Via Torino 88</dd>
+              <dt>Opening hours</dt><dd>Saturday 09:00–13:00</dd>
+            </dl>
+          </article>
+
+        </div>
+        <p id="empty-state" hidden>No places match your search. Try another action or category.</p>
+      </div>
+    </section>
+  </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 Decision Squad - Guide to Reusing - Student Project - All rights reserved </p>
+            <a href="https://github.com/GiuliaSenes/Direction-Squad">Project repository on GitHub</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
