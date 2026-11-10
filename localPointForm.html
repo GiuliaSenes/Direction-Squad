@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Guide to Reusing | Form</title>
+
+    <!-- Meta tags OpenGraph for SEO -->
+    <meta property="og:title" content="Suggest a place | Guide to Reusing" />
+    <meta
+      property="og:description"
+      content="Suggest a localplace where people can learn how to extend the life of your clothing items and reduce waste."
+    />
+    <meta property="og:image" content="./img/ReuseClothing.png" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Guide to Reusing</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="localPointForm.html"
+                  >Suggest new Places</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main-->
+    <main id="main-content" class="section-spacing" tabindex="-1">
+      <div class="container form-container">
+        <h1>Suggest a local place</h1>
+        <p>Help others find places to give everyday items a second life.</p>
+        <p id="form-note">
+          Fields marked “required” must be completed. This layout preview does
+          not save suggestions yet.
+        </p>
+
+        <!-- FORM -->
+        <form id="contact-form" class="form-panel" aria-describedby="form-note">
+          <div class="row g-3">
+            <div class="col-12 col-md-8">
+              <label for="name" class="form-label">Place name (required)</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="zone" class="form-label">Zone (required)</label>
+              <input
+                type="text"
+                id="zone"
+                name="zone"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="action" class="form-label">Action (required)</label>
+              <select id="action" name="action" class="form-select" required>
+                <option value="" selected disabled>Select an action</option>
+                <option value="donate">Donate</option>
+                <option value="exchange">Exchange</option>
+                <option value="recycle">Recycle</option>
+                <option value="repair">Repair</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="category" class="form-label"
+                >Category (required)</label
+              >
+              <select
+                id="category"
+                name="category"
+                class="form-select"
+                required
+              >
+                <option value="" selected disabled>Select a category</option>
+                <option value="bicycles">Bicycles</option>
+                <option value="clothing">Clothing</option>
+                <option value="electronics">Electronics</option>
+                <option value="furniture">Furniture</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-8">
+              <label for="address" class="form-label">Address (required)</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="openingHours" class="form-label"
+                >Opening hours (optional)</label
+              >
+              <input
+                type="text"
+                id="openingHours"
+                name="openingHours"
+                class="form-control"
+                aria-describedby="hours-help"
+              />
+              <p id="hours-help" class="field-help">
+                For example: Mon–Fri 15:00–19:00.
+              </p>
+            </div>
+            <div class="col-12">
+              <label for="description" class="form-label"
+                >Description (required)</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <div class="col-12 form-actions">
+              <button
+                id="submit-place"
+                type="submit"
+                class="btn btn-success"
+                disabled
+                aria-describedby="form-note"
+              >
+                Suggest a place
+              </button>
+              <a href="index.html#local-points" class="btn btn-outline-light"
+                >Back to local places</a
+              >
+            </div>
+          </div>
+          <p id="form-status" class="mb-0 mt-3" role="status"></p>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          Guide to Reusing · Student project · Decision Squad · All Right
+          Reserved 2026
+        </p>
+        <a href="https://github.com/GiuliaSenes/Direction-Squad"
+          >Project repository on GitHub</a
+        >
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
