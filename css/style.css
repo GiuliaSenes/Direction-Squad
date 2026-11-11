@@ -211,6 +211,110 @@ h2 {
   margin-bottom: .5rem; 
 }
 
+/* Form feedback */
+.field-error {
+  margin: .375rem 0 0;
+  color: #fecaca;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.form-panel [aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.form-status {
+  margin: 0;
+}
+
+.form-status:not(:empty) {
+  margin-top: 1rem;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 600;
+}
+
+.form-status[data-state="error"]:not(:empty) {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+/* Favorites */
+.favorite-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.favorite-state {
+  display: none;
+  color: var(--accent-color);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.favorite-button[aria-pressed="true"] + .favorite-state {
+  display: inline;
+}
+
+.favorite-button {
+  min-height: 44px;
+  padding: .5rem .75rem;
+  border: 1px solid var(--accent-color);
+  border-radius: .5rem;
+  background: transparent;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.favorite-button:hover {
+  background: #14532d;
+  color: #ffffff;
+}
+
+.favorite-button__on,
+.favorite-button[aria-pressed="true"] .favorite-button__off {
+  display: none;
+}
+
+.favorite-button[aria-pressed="true"] {
+  background: var(--accent-color);
+  color: #0f172a;
+}
+
+.favorite-button[aria-pressed="true"] .favorite-button__on {
+  display: inline;
+}
+
+/* Opening hours */
+.hours-panel {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: .5rem;
+}
+
+.hours-panel legend {
+  float: none;
+  width: auto;
+  margin-bottom: .5rem;
+  font-size: 1.125rem;
+}
+
+.hours-panel .hours-days-title {
+  font-size: 1rem;
+}
+
+.hours-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1rem;
+}
+
 @media (min-width: 768px) {
   h1 { 
     font-size: 2.75rem; 

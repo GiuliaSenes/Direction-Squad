@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Guida al Risuo</title>
+    <title>Guida al Riuso</title>
 
     <!-- Meta tags OpenGraph for SEO -->
     <meta property="og:title" content="Guide to reusing | Find local places" />
@@ -143,11 +143,18 @@
                   class="form-select"
                 >
                   <option value="">Tutte le categorie</option>
-                  <option value="bicycles">Bicilette</option>
+                  <option value="bicycles">Biciclette</option>
                   <option value="clothing">Abbigliamento</option>
                   <option value="electronics">Eletronica</option>
                   <option value="furniture">Mobili</option>
                 </select>
+              </div>
+              <!-- app.js enables this filter after initializing favorites. -->
+              <div id="favorites-filter-group" class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="favorites-only" name="favoritesOnly" disabled>
+                  <label class="form-check-label" for="favorites-only">Solo preferiti</label>
+                </div>
               </div>
             </div>
           </fieldset>
@@ -160,7 +167,20 @@
             class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4"
           ></div>
 
-          <!-- Card visualizzate dinamicamente dall'array data.js-->
+          <!-- Clone this template into each card and set data-point-id and aria-pressed. -->
+          <template id="favorite-button-template">
+            <div class="favorite-control">
+              <button class="favorite-button" type="button" aria-pressed="false">
+                <span class="favorite-button__off" aria-hidden="true">☆</span>
+                <span class="favorite-button__on" aria-hidden="true">★</span>
+                Preferito
+              </button>
+              <span class="favorite-state">Nei preferiti</span>
+            </div>
+          </template>
+
+          <p id="favorites-status" class="visually-hidden" role="status"></p>
+          <p id="favorites-empty-state" hidden>Non hai ancora salvato preferiti.</p>
 
           <p id="empty-state" hidden>
             Nessun luogo corrisponde alla tua ricerca. Prova un'altra azione o

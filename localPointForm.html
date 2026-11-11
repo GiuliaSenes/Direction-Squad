@@ -67,7 +67,6 @@
         <p>Aiuta gli altri a trovare posti dove dare una seconda vita agli oggetti di uso quotidiano.</p>
         <p id="form-note">
           I campi contrassegnati come “obbligatori” devono essere compilati. 
-          Questa anteprima del layout non salva ancora i suggerimenti.
         </p>
 
         <!-- FORM -->
@@ -80,8 +79,14 @@
                 id="name"
                 name="name"
                 class="form-control"
+                aria-describedby="name-help name-error"
+                minlength="2"
+                maxlength="80"
+                pattern=".*\S.*"
                 required
               />
+              <p id="name-help" class="field-help">Da 2 a 80 caratteri.</p>
+              <p id="name-error" class="field-error" hidden>Nome: inserisci da 2 a 80 caratteri, senza contare gli spazi iniziali e finali.</p>
             </div>
             <div class="col-12 col-md-4">
               <label for="zone" class="form-label">Zona (obbligatorio)</label>
@@ -90,18 +95,25 @@
                 id="zone"
                 name="zone"
                 class="form-control"
+                aria-describedby="zone-help zone-error"
+                minlength="2"
+                maxlength="15"
+                pattern=".*\S.*"
                 required
               />
+              <p id="zone-help" class="field-help">Da 2 a 15 caratteri.</p>
+              <p id="zone-error" class="field-error" hidden>Zona: inserisci da 2 a 15 caratteri, senza contare gli spazi iniziali e finali.</p>
             </div>
             <div class="col-12 col-md-6">
               <label for="action" class="form-label">Azione (obbligatorio)</label>
-              <select id="action" name="action" class="form-select" required>
+              <select id="action" name="action" class="form-select" required aria-describedby="action-error">
                 <option value="" selected disabled>Scegli un'azione</option>
                 <option value="donate">Donare</option>
                 <option value="exchange">Scambiare</option>
                 <option value="recycle">Riciclare</option>
                 <option value="repair">Riparare</option>
               </select>
+              <p id="action-error" class="field-error" hidden>Scegli un’azione.</p>
             </div>
             <div class="col-12 col-md-6">
               <label for="category" class="form-label"
@@ -111,6 +123,7 @@
                 id="category"
                 name="category"
                 class="form-select"
+                aria-describedby="category-error"
                 required
               >
                 <option value="" selected disabled>Scegli una categoria</option>
@@ -119,6 +132,7 @@
                 <option value="electronics">Elettronica</option>
                 <option value="furniture">Mobili</option>
               </select>
+              <p id="category-error" class="field-error" hidden>Scegli una categoria.</p>
             </div>
             <div class="col-12 col-md-8">
               <label for="address" class="form-label">Indirizzo (obbligatorio)</label>
@@ -127,23 +141,75 @@
                 id="address"
                 name="address"
                 class="form-control"
+                aria-describedby="address-help address-error"
+                minlength="5"
+                maxlength="120"
+                pattern=".*\S.*"
                 required
               />
+              <p id="address-help" class="field-help">Da 5 a 120 caratteri.</p>
+              <p id="address-error" class="field-error" hidden>Indirizzo: inserisci da 5 a 120 caratteri, senza contare gli spazi iniziali e finali.</p>
             </div>
-            <div class="col-12 col-md-4">
-              <label for="openingHours" class="form-label"
-                >Orario di apertura (opzionale)</label
-              >
-              <input
-                type="text"
-                id="openingHours"
-                name="openingHours"
-                class="form-control"
-                aria-describedby="hours-help"
-              />
-              <p id="hours-help" class="field-help">
-                Per esempio: Lun–Ven 15:00–19:00.
-              </p>
+            <div class="col-12">
+              <fieldset class="hours-panel" aria-describedby="hours-help">
+                <legend>Orari di apertura (facoltativi)</legend>
+                <p id="hours-help" class="field-help mb-3">
+                  Seleziona i giorni che condividono la stessa fascia oraria. Se non conosci gli orari, lascia il gruppo vuoto.
+                </p>
+                <fieldset class="mb-3">
+                  <legend class="hours-days-title">Giorni di apertura</legend>
+                  <div class="hours-days">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-monday" name="openingDays" value="monday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-monday">Lunedì</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-tuesday" name="openingDays" value="tuesday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-tuesday">Martedì</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-wednesday" name="openingDays" value="wednesday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-wednesday">Mercoledì</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-thursday" name="openingDays" value="thursday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-thursday">Giovedì</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-friday" name="openingDays" value="friday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-friday">Venerdì</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-saturday" name="openingDays" value="saturday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-saturday">Sabato</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hours-sunday" name="openingDays" value="sunday" aria-describedby="hours-days-error">
+                    <label class="form-check-label" for="hours-sunday">Domenica</label>
+                  </div>
+                  </div>
+                  <p id="hours-days-error" class="field-error" hidden>Seleziona almeno un giorno.</p>
+                </fieldset>
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6">
+                    <label for="opening-time" class="form-label">Apertura</label>
+                    <input class="form-control" type="time" id="opening-time" name="openingTime" min="00:00" max="23:59" step="60" aria-describedby="opening-time-error">
+                    <p id="opening-time-error" class="field-error" hidden>Indica l’ora di apertura.</p>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <label for="closing-time" class="form-label">Chiusura</label>
+                    <input class="form-control" type="time" id="closing-time" name="closingTime" min="00:00" max="23:59" step="60" aria-describedby="closing-time-help closing-time-error">
+                    <div class="form-check mt-2">
+                      <input class="form-check-input" type="checkbox" id="closes-at-midnight" name="closesAtMidnight" aria-describedby="closing-time-help">
+                      <label class="form-check-label" for="closes-at-midnight">Chiude a mezzanotte (24:00)</label>
+                    </div>
+                    <p id="closing-time-help" class="field-help">Se selezioni 24:00, lascia vuoto il campo Chiusura.</p>
+                    <p id="closing-time-error" class="field-error" hidden>Indica una chiusura successiva all’apertura oppure seleziona 24:00.</p>
+                  </div>
+                </div>
+                <!-- form.js fills this value from the selected days and times before saving. -->
+                <input type="hidden" id="openingHours" name="openingHours" value="">
+              </fieldset>
             </div>
             <div class="col-12">
               <label for="description" class="form-label"
@@ -154,15 +220,32 @@
                 name="description"
                 class="form-control"
                 rows="5"
+                aria-describedby="description-help description-error"
+                minlength="10"
+                maxlength="500"
                 required
               ></textarea>
+              <p id="description-help" class="field-help">Da 10 a 500 caratteri.</p>
+              <p id="description-error" class="field-error" hidden>Descrizione: inserisci da 10 a 500 caratteri, senza contare gli spazi iniziali e finali.</p>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="save-as-favorite"
+                  name="saveAsFavorite"
+                />
+                <label class="form-check-label" for="save-as-favorite">
+                  Salva questo punto nei preferiti
+                </label>
+              </div>
             </div>
             <div class="col-12 form-actions">
               <button
                 id="submit-place"
                 type="submit"
                 class="btn btn-success"
-                disabled
                 aria-describedby="form-note"
               >
                 Segnala un nuovo punto
@@ -172,7 +255,7 @@
               >
             </div>
           </div>
-          <p id="form-status" class="mb-0 mt-3" role="status"></p>
+          <p id="form-status" class="form-status" role="status"></p>
         </form>
       </div>
     </main>
