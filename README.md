@@ -54,6 +54,7 @@ apri la cartella su Visual Studio Code, installa l'estensione Live Server, fai c
 
 Il progetto è stato realizzato in collaborazione suddividendo le responsabilità tecniche tra i membri del team:
 
-Giulia Senes (GiuliaSenes) – Sviluppo della logica applicativa in JavaScript (app.js), strutturazione del dataset (data.js), implementazione dei filtri di ricerca combinati, sistema di salvataggio preferiti tramite localStorage, integrazione del traduttore e gestione del repository Git/GitHub. (Nota sui contributori nella cronologia Git: All'interno dei commit e delle statistiche del repository figura un terzo account collaboratore (SimoneQ). Si precisa che tali commit sono stati comunque effettuati da Giulia Senes). 
+Giulia Senes (GiuliaSenes) – Sviluppo della logica in JavaScript.
+ (Nota sui contributori nella cronologia Git: All'interno dei commit e delle statistiche del repository figura un terzo account collaboratore (SimoneQ). Si precisa che tali commit sono stati comunque effettuati da Giulia Senes). 
 
-Giovanni (giacorsa) – Progettazione della struttura HTML, impostazione del layout responsivo con Bootstrap, cura dello stile grafico e dell'accessibilità dell'interfaccia.
+Giovanni Corsato (giacorsa) – Progettazione della struttura HTML, impostazione del layout responsivo con Bootstrap, cura dello stile grafico e dell'accessibilità dell'interfaccia.
