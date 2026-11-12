@@ -1,15 +1,15 @@
-#♻️ Guida al Riuso
+# ♻️ Guida al Riuso
 
 Guida al Riuso è un'applicazione web interattiva progettata per aiutare i cittadini a individuare facilmente i punti di riciclo, riparazione, donazione e scambio sul territorio. 
 
 🔗 Demo Live su Netlify: https://direction-squad.netlify.app/ 
 
-##📸 Anteprima del Progetto
+## 📸 Anteprima del Progetto
 ![anteprima progetto](/img/image-1.png)
 
 
 
-##✨ Funzionalità Principali
+## ✨ Funzionalità Principali
 
 Esplorazione Dinamica dei Punti: Visualizzazione immediata dei luoghi disponibili tramite card generate dinamicamente, complete di categoria, azione consigliata, descrizione, zona, indirizzo e orari di apertura.
 
@@ -25,14 +25,14 @@ Gestione Preferiti (localStorage): Possibilità di salvare i propri punti di int
 
 Segnalazione Nuovi Punti: Sezione dedicata per proporre e segnalare nuove realtà virtuose sul territorio.
 
-##🛠️ Tecnologie Utilizzate
+## 🛠️ Tecnologie Utilizzate
 
 Il progetto adotta un'architettura Frontend-only, leggera e veloce, senza necessità di un backend esterno:
 
 HTML, CSS & Bootstrap,JavaScript.
 
 
-##🚀 Come Avviare il Progetto in Locale
+## 🚀 Come Avviare il Progetto in Locale
 
 Essendo un'applicazione puramente frontend, non richiede installazioni di dipendenze, database o server complessi:
 
