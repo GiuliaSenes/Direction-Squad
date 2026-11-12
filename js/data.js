@@ -1,4 +1,4 @@
-const puntiRiuso = [
+const reusePoints = [
   {
     id: 1,
     name: "Bike WorkShop",

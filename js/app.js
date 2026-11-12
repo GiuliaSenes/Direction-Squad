@@ -1,4 +1,4 @@
-// 1. Selezione degli elementi dal DOM
+// 1. DOM elements selection
 const gridContainer = document.getElementById('local-points-grid');
 const searchInput = document.getElementById('search');
 const actionFilter = document.getElementById('action-filter');
@@ -9,33 +9,33 @@ const emptyState = document.getElementById('empty-state');
 const favoritesEmptyState = document.getElementById('favorites-empty-state');
 const favoriteTemplate = document.getElementById('favorite-button-template');
 
-// --- DATI FISSI + DATI DA FORMS ---
-const puntiSalvati = JSON.parse(localStorage.getItem('nuoviPunti')) || [];
-const tuttiIPunti = (typeof puntiRiuso !== 'undefined') ? [...puntiRiuso, ...puntiSalvati] : [...puntiSalvati];
+// --- STATIC DATA + FORM DATA ---
+const savedPoints = JSON.parse(localStorage.getItem('nuoviPunti')) || [];
+const allPoints = (typeof reusePoints !== 'undefined') ? [...reusePoints, ...savedPoints] : [...savedPoints];
 
-// --- GESTIONE PREFERITI ---
-let preferiti = JSON.parse(localStorage.getItem('preferitiPunti')) || [];
+// --- FAVORITES MANAGEMENT ---
+let favorites = JSON.parse(localStorage.getItem('preferitiPunti')) || [];
 
 if (favoritesOnlyCheckbox) {
     favoritesOnlyCheckbox.disabled = false;
 }
 
-// --- DIZIONARI DI TRADUZIONE ---
-const traduzioniCategorie = {
+// --- TRANSLATION DICTIONARIES ---
+const categoryTranslations = {
     bicycles: "Biciclette",
     clothing: "Abbigliamento",
     electronics: "Elettronica",
     furniture: "Mobili"
 };
 
-const traduzioniAzioni = {
+const actionTranslations = {
     donate: "Donare",
     exchange: "Scambiare",
     recycle: "Riciclare",
     repair: "Riparare"
 };
 
-// 2. Funzione per la stampa dinamica delle card
+// 2. Dynamic card rendering function
 function renderPoints(arrayToRender) {
     if (!gridContainer) return;
     gridContainer.innerHTML = '';
@@ -43,7 +43,7 @@ function renderPoints(arrayToRender) {
     const isOnlyFavs = favoritesOnlyCheckbox && favoritesOnlyCheckbox.checked;
 
     if (arrayToRender.length === 0) {
-        if (isOnlyFavs && preferiti.length === 0) {
+        if (isOnlyFavs && favorites.length === 0) {
             if (favoritesEmptyState) favoritesEmptyState.hidden = false;
             if (emptyState) emptyState.hidden = true;
         } else {
@@ -61,52 +61,53 @@ function renderPoints(arrayToRender) {
         resultsStatus.textContent = `${arrayToRender.length} luoghi disponibili`;
     }
 
-    arrayToRender.forEach(punto => {
-        const categoryFormatted = traduzioniCategorie[punto.category] || punto.category;
-        const actionFormatted = traduzioniAzioni[punto.action] || punto.action;
-        const isFav = preferiti.includes(punto.id);
+    arrayToRender.forEach(point => {
+        const categoryFormatted = categoryTranslations[point.category] || point.category;
+        const actionFormatted = actionTranslations[point.action] || point.action;
+        const isFav = favorites.includes(point.id);
 
         const cardCol = document.createElement('div');
         cardCol.className = 'col';
 
-cardCol.innerHTML = `
-            <article class="localPoint-card h-100 p-4 border rounded shadow-sm d-flex flex-column justify-content-between" aria-labelledby="point-${punto.id}-title">
+        cardCol.innerHTML = `
+            <article class="localPoint-card h-100 p-4 border rounded shadow-sm d-flex flex-column justify-content-between" aria-labelledby="point-${point.id}-title">
                 <div>
-                    <!-- Categoria -->
+                    <!-- Category -->
                     <p class="point-category text-success font-monospace small fw-bold mb-2">
                         ${categoryFormatted} · ${actionFormatted}
                     </p>
                     
-                    <!-- Titolo e Bottone allineati perfettamente -->
+                    <!-- Title and Button perfectly aligned -->
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3 id="point-${punto.id}-title" class="h5 mb-0">${punto.name}</h3>
+                        <h3 id="point-${point.id}-title" class="h5 mb-0">${point.name}</h3>
                         <div class="fav-container d-flex align-items-center"></div>
                     </div>
 
-                    <p class="card-text text-light mb-4">${punto.description}</p>
+                    <p class="card-text text-light mb-4">${point.description}</p>
                 </div>
                 <dl class="point-details small mb-0 pt-3 border-top">
                     <dt class="fw-bold">Zona</dt>
-                    <dd class="mb-2">${punto.zone}</dd>
+                    <dd class="mb-2">${point.zone}</dd>
                     <dt class="fw-bold">Indirizzo</dt>
-                    <dd class="mb-2">${punto.address}</dd>
+                    <dd class="mb-2">${point.address}</dd>
                     <dt class="fw-bold">Orari di apertura</dt>
-                    <dd class="mb-0">${punto.hours || 'Non specificati'}</dd>
+                    <dd class="mb-0">${point.hours || 'Non specificati'}</dd>
                 </dl>
             </article>
         `;
-if (favoriteTemplate) {
+
+        if (favoriteTemplate) {
             const favClone = favoriteTemplate.content.cloneNode(true);
             const favBtn = favClone.querySelector('.favorite-button');
             const favState = favClone.querySelector('.favorite-state');
 
             if (favBtn) {
-                favBtn.setAttribute('data-point-id', punto.id);
+                favBtn.setAttribute('data-point-id', point.id);
                 favBtn.setAttribute('aria-pressed', isFav ? 'true' : 'false');
-                favBtn.addEventListener('click', () => toggleFavorite(punto.id));
+                favBtn.addEventListener('click', () => toggleFavorite(point.id));
             }
 
-            // Nascondiamo la scritta testuale extra per evitare che faccia impazzire il layout a capo
+            // Hide extra text label to prevent layout wrapping issues
             if (favState) {
                 favState.style.display = 'none';
             }
@@ -118,38 +119,38 @@ if (favoriteTemplate) {
     });
 }
 
-// 3. Toggle Preferiti
+// 3. Toggle Favorites
 function toggleFavorite(id) {
-    if (preferiti.includes(id)) {
-        preferiti = preferiti.filter(favId => favId !== id);
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(favId => favId !== id);
     } else {
-        preferiti.push(id);
+        favorites.push(id);
     }
-    localStorage.setItem('preferitiPunti', JSON.stringify(preferiti));
+    localStorage.setItem('preferitiPunti', JSON.stringify(favorites));
     filterPoints();
 }
 
-// 4. Logica di filtraggio
+// 4. Filtering logic
 function filterPoints() {
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const selectedAction = actionFilter ? actionFilter.value : '';
     const selectedCategory = categoryFilter ? categoryFilter.value : '';
     const onlyFavs = favoritesOnlyCheckbox ? favoritesOnlyCheckbox.checked : false;
 
-    const risultatiFiltrati = tuttiIPunti.filter(punto => {
-        const matchQuery = punto.name.toLowerCase().includes(query) ||
-                           punto.zone.toLowerCase().includes(query) ||
-                           punto.address.toLowerCase().includes(query) ||
-                           punto.description.toLowerCase().includes(query);
+    const filteredResults = allPoints.filter(point => {
+        const matchQuery = point.name.toLowerCase().includes(query) ||
+                           point.zone.toLowerCase().includes(query) ||
+                           point.address.toLowerCase().includes(query) ||
+                           point.description.toLowerCase().includes(query);
 
-        const matchAction = (!selectedAction || selectedAction === 'all') ? true : punto.action === selectedAction;
-        const matchCategory = (!selectedCategory || selectedCategory === 'all') ? true : punto.category === selectedCategory;
-        const matchFav = onlyFavs ? preferiti.includes(punto.id) : true;
+        const matchAction = (!selectedAction || selectedAction === 'all') ? true : point.action === selectedAction;
+        const matchCategory = (!selectedCategory || selectedCategory === 'all') ? true : point.category === selectedCategory;
+        const matchFav = onlyFavs ? favorites.includes(point.id) : true;
 
         return matchQuery && matchAction && matchCategory && matchFav;
     });
 
-    renderPoints(risultatiFiltrati);
+    renderPoints(filteredResults);
 }
 
 // Listeners
@@ -158,5 +159,5 @@ if (actionFilter) actionFilter.addEventListener('change', filterPoints);
 if (categoryFilter) categoryFilter.addEventListener('change', filterPoints);
 if (favoritesOnlyCheckbox) favoritesOnlyCheckbox.addEventListener('change', filterPoints);
 
-// Avvio iniziale
+// Initial render
 filterPoints();
